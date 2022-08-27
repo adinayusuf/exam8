@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Добавить отзыв{% endblock %}
+{% block nav %} {% endblock %}
+{% block content %}
+    <h5>Добавить отзыв</h5>
+    <form method="post">
+        {% include 'partial/form.html' with button_text="Добавить" %}
+    </form>
+{% endblock %}

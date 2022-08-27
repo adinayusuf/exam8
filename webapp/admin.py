@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import Permission
 
 from webapp.models import Product, Review
 
@@ -16,3 +17,4 @@ class ReviewAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(Permission)

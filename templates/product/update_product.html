@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}Добавить товар{% endblock %}
+{% block title %}Изменить товар{% endblock %}
 {% block nav %} {% endblock %}
 {% block content %}
     <h5> Изменить товар</h5>
-    <form enctype = "application/x-www-form-urlencoded | multipart/form-data | text/plain"
+    <form enctype = "multipart/form-data"
           action="{% url "webapp:update_product" product.pk %}" method="post">
         {% include 'partial/form.html' with button_text="Изменить" %}
     </form>

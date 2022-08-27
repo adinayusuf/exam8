@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
-from django.urls import reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import ProductForm
 from webapp.models import Product
@@ -19,12 +19,6 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'product/detail_product.html'
     context_object_name = 'product'
-
-    # def get_context_data(self, **kwargs):
-    #     contex = super().get_context_data(**kwargs)
-    #     product = self.get_object()
-    #     contex['average'] = product.get_average_mark()
-    #     return contex
 
 
 class ProductCreateView(PermissionRequiredMixin, CreateView):
@@ -47,4 +41,8 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('webapp:detail_product', kwargs={"pk": self.object.pk})
 
-
+class ProductDeleteView(PermissionRequiredMixin,DeleteView):
+    permission_required = 'webapp.delete'
+    model = Product
+    template_name = 'product/delete_product.html'
+    success_url = reverse_lazy('webapp:index')

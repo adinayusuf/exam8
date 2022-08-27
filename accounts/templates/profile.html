@@ -4,10 +4,10 @@
 {% block nav %}
     {% if user_obj == user %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'accounts:change_profile' user_obj.pk %}">Change profile</a>
+            <a class="nav-link" href="{% url 'accounts:change_profile' user_obj.pk %}">Поменять профиль</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{%  url 'accounts:change_password' %}"> Change password</a>
+            <a class="nav-link" href="{% url 'accounts:change_password' %}"> Изменить пароль</a>
         </li>
     {% endif %}
 {% endblock %}
@@ -21,9 +21,10 @@
             <br>
             <p class="card-subtitle mb-2 -muted">{{ user_obj.first_name }}</p>
             <p class="card-subtitle mb-2 -muted"> {{ user_obj.last_name }}</p>
-            <p class="card-subtitle mb-2 -muted">{{ user_obj.profile.about_user }}</p>
             <p class="card-subtitle mb-2 -muted">{{ user_obj.email }}</p>
+            <p class="card-subtitle mb-2 -muted">{{ user_obj.profile.about_user }}</p>
             <p class="card-subtitle mb-2 -muted"> {{ user_obj.profile.git }}</p>
         </div>
     </div>
+        {% include "partial/review_list_partial.html" %}
 {% endblock %}

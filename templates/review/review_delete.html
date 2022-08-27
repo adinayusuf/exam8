@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Удаление отзыва{% endblock %}
+{% block content %}
+    <div>
+        <form action="{% url 'webapp:review_delete' review.pk %}" method="POST">
+            {% csrf_token %}
+            <div class="card text-center" style="max-width: 18rem;">
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Удаление отзыва:</h5>
+                    <p class="card-text">Вы действительно хотите удалить отзыв? </p>
+                    <div class="gap-2 col-6" style="float: right">
+                        <a>
+                            <button class="btn btn-danger" type="submit">Да</button>
+                        </a>
+                        <a href="{% url "webapp:detail_product" review.pk %}">
+                            <button class="btn btn-primary" type="button">Нет</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
