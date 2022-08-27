@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views import View
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -34,7 +34,8 @@ class ReviewUpdateView(UpdateView):
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.is_moderate = False
+        if not request.user.has_perm('change_review'):
+            self.object.is_moderate = False
         self.object.save()
         return super().post(request, *args, **kwargs)
 
@@ -46,7 +47,6 @@ class ReviewDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('webapp:detail_product', kwargs={'pk': self.object.product.pk})
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         avg_mark = sum(Review.objects.filter(product_id=kwargs.get('id')).values_list('mark', flat=True))
@@ -56,7 +56,14 @@ class ReviewDeleteView(DeleteView):
 
 class ReviewModerateView(View):
     def get(self, request, *args, **kwargs):
-        review = Review.objects.get(id=kwargs.get('pk'))
-        review.is_moderate = True
-        review.save()
-        return redirect('webapp:review_moderate')
+        qs = Review.objects.filter(is_moderate=False).order_by('-edited_at')
+        return render(request, 'review/review_moderate.html', {'reviews': qs})
+
+
+class ReviewUpdateModerateView(View):
+    def get(self, request, *args, **kwargs):
+        review_id = kwargs.get('pk')
+        r = Review.objects.get(id=review_id)
+        r.is_moderate = True
+        r.save()
+        return redirect('webapp:moderate')
