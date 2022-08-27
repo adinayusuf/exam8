@@ -1,29 +1,23 @@
-<h2>Отзывы</h2>
-
+<h5>Отзывы</h5>
 {% for review in reviews %}
-    {% if review.moderate or perms.webapp.view_review %}
+    {% if review.is_moderate or perms.webapp.view_review %}
         <br>
         <div class="card border-danger mb-3" style="max-width: 18rem;">
             <div class="card-header bg-transparent border-danger">
-                Автор: <a class="nav-link" href="{% url 'accounts:profile' review.author.pk %}">{{ review.author }}</a><br>
+                Автор: <a class="nav-link text-success"
+                          href="{% url 'accounts:profile' review.author.pk %}">{{ review.author }}</a><br>
                 Email: {{ review.author.email }}</div>
             <div class="card-body ">
                 <h5 class="card-title"> Оценка: {{ review.mark }}</h5>
                 <p class="card-text"> Отзыв: {{ review.text }}</p>
             </div>
-            {% if request.user == review.author or perms.feedback.change_review %}
+            {% if request.user == review.author or perms.webapp.change_review %}
                 <a class="btn btn-primary mt-3" href="{% url 'webapp:review_update' review.pk %}">Редактировать
                     отзыв</a>
             {% endif %}
-            {% if request.user == review.author or perms.feedback.delete_review %}
-                <a class="btn btn-danger mt-3" href="{% url 'webapp:review_delete' review.pk %}">Удалить
-                    отзыв</a>
+            {% if request.user == review.author or perms.webapp.delete_review %}
+                <a class="btn btn-danger mt-3" href="{% url 'webapp:review_delete' review.pk %}">Удалить отзыв</a>
             {% endif %}
-{#            {% if request.user|has_group:"Moderators"%}#}
-{#                <a class="btn btn-danger mt-3" href="{% url 'e:review_moderate' review.pk %}">Подтвердить#}
-{#                    отзыв</a>#}
-{#            {% endif %}#}
         </div>
     {% endif %}
-
 {% endfor %}

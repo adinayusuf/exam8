@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title"> Название: {{ product.name_goods }}</h5>
-                <h5> Средняя оценка:{{ product.get_average_mark }}</h5>
+                <h6> Средняя оценка:{{ product.get_avarage }}</h6>
                 <a href="{% url "webapp:detail_product" product.pk %}" class="btn btn-primary" style="float: right">
                     Детальный просмотр</a>
             </div>

@@ -13,6 +13,12 @@ class Product(models.Model):
     picture = models.ImageField(verbose_name='Картинка', upload_to='pictures/', default='product.jpg',
                                 null=True, blank=True)
 
+    def get_avarage(self):
+        qs = self.reviews.filter(is_moderate=True)
+        if qs.count():
+            return sum(qs.values_list('mark', flat=True)) / qs.count()
+        return 0
+
 
 class Review(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='reviews', verbose_name='Автор')

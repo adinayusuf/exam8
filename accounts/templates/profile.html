@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}Профиль{% endblock %}
 {% block nav %}
     {% if user_obj == user %}
         <li class="nav-item">
@@ -26,5 +26,5 @@
             <p class="card-subtitle mb-2 -muted"> {{ user_obj.profile.git }}</p>
         </div>
     </div>
-        {% include "partial/review_list_partial.html" %}
+    {% include "partial/review_list_partial.html" with reviews=product.reviews.all %}
 {% endblock %}

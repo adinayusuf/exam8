@@ -20,9 +20,9 @@
     <div class="card border-danger mb-3" style="max-width: 18rem;">
         <div class="card-header bg-transparent border-danger"> Категория: {{ product.get_category_display }}</div>
         <div class="card-body ">
-            <h5 class="card-title"> Название: {{ product.name_goods }}</h5>
+            <h6 class="card-title"> Название: {{ product.name_goods }}</h6>
             <p class="card-text"> Описание: {{ product.description }}</p>
-            <h5> Средняя оценка: {{ average }}</h5>
+            <h6> Средняя оценка: {{ product.get_avarage }}</h6>
             <img style="width: 250px; height: auto;"
                  src="{{ product.picture.url }}" alt="picture">
         </div>
