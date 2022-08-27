@@ -57,20 +57,6 @@ class ProfileView(LoginRequiredMixin, DetailView):
     paginate_orphans = 0
     context_object_name = 'user_obj'
 
-    def get_context_data(self, **kwargs):
-        paginator = Paginator(self.get_object().projects.all(),
-                              self.paginate_by,
-                              self.paginate_orphans)
-        page_number = self.request.GET.get('page', 1)
-        page_object = paginator.get_page(page_number)
-
-        context = super().get_context_data(**kwargs)
-        context['page_obj'] = page_object
-        context['projects'] = page_object.object_list
-        context['is_paginated'] = page_object.has_other_pages()
-        return context
-
-
 class UserList(PermissionRequiredMixin, ListView):
     model = get_user_model()
     context_object_name = 'users'

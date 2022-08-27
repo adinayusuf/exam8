@@ -10,7 +10,7 @@ class Product(models.Model):
     name_goods = models.CharField(max_length=50, verbose_name='Название')
     category = models.CharField(max_length=20, default='other', choices=CHOISES, verbose_name='Категории')
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
-    picture = models.ImageField(verbose_name='Картинка', upload_to='pictures/', default='/pictures/product.jpg',
+    picture = models.ImageField(verbose_name='Картинка', upload_to='pictures/', default='product.jpg',
                                 null=True, blank=True)
 
 

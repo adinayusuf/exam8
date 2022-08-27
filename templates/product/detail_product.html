@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name_goods }}{% endblock %}
+{% block nav %}
+{% if perms.webapp.update %}
+    <li class="nav-item">
+        <a class="nav-link menu-right" href="{% url "webapp:update_product" product.pk %}"> Редактировать продукт</a>
+    </li>
+{% endif %}
+{% endblock %}
+{% block content %}
+    <br>
+    <div class="card border-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-danger"> Категория: {{ product.get_category_display }}</div>
+        <div class="card-body ">
+            <h5 class="card-title"> Название: {{ product.name_goods }}</h5>
+            <p class="card-text"> Описание: {{ product.description }}</p>
+            <h5> Средняя оценка: {{ average }}</h5>
+            <img style="width: 250px; height: auto;"
+                 src="{{ product.picture.url }}" alt="picture">
+        </div>
+        <div class="card-footer bg-transparent border-danger">
+            <a href="{% url "webapp:index" %}" class="btn btn-danger" style="float: right">Назад</a></div>
+    </div>
+
+{% endblock %}
