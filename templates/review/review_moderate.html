@@ -11,13 +11,13 @@
             <h6 class="card-title"> Название: {{ r.product.name_goods }}</h6>
             <p> Коментарияй: {{ r.text }}</p>
             <p> Oценка: {{ r.product.get_avarage }}</p>
-        <a href="{% url "webapp:review_approve" r.id %}" class="btn btn-danger" style="float: right">Подтвердить</a>
-        <a href="{% url "webapp:review_update"  r.id %}" class="btn btn-danger" style="float: right">Редактировать</a>
+          <a href="{% url "webapp:review_approve" r.id %}" class="btn btn-danger" style="float: right">Подтвердить</a>
+             <a href="{% url "webapp:review_update"  r.id %}" class="btn btn-danger"
+               style="float: right">Редактировать</a>
+        </div>
         </div>
     {% endfor %}
-<div class="card-footer bg-transparent border-danger">
-    <a href="{% url "webapp:index" %}" class="btn btn-danger" style="float: right">Назад</a>
-
-</div>
-
+    <div class="card-footer bg-transparent border-danger">
+        <a href="{% url "webapp:index" %}" class="btn btn-danger" style="float: right">Назад</a>
+    </div>
 {% endblock %}

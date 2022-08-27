@@ -57,12 +57,10 @@ class ProfileView(LoginRequiredMixin, DetailView):
     paginate_orphans = 0
     context_object_name = 'user_obj'
 
-class UserList(PermissionRequiredMixin, ListView):
+class UserList(ListView):
     model = get_user_model()
     context_object_name = 'users'
     template_name = 'profile_list.html'
-    permission_required = 'accounts.view_profile'
-
 
 class ChangeProfileView(PermissionRequiredMixin, UpdateView):
     model = User

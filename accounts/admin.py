@@ -11,6 +11,7 @@ class ProfileInline(admin.StackedInline):
 
 
 class UserAdmin(admin.ModelAdmin):
+    filter_horizontal = ['groups', 'user_permissions']
     inlines = (ProfileInline,)
 
 

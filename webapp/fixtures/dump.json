@@ -1,0 +1,153 @@
+[
+{
+    "model": "webapp.product",
+    "pk": 1,
+    "fields": {
+        "name_goods": "Iphone 7",
+        "category": "phones",
+        "description": "Стандартная модель iPhone 7 имеет дисплей диагональю 4,7 дюйма, разрешением 1334x750 пикселей; размеры телефона — 138,3×67,1×7,1 мм, вес — 138 грамм.",
+        "picture": "pictures/1573312947_post_8719_thumbnail.jpeg"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 2,
+    "fields": {
+        "name_goods": "Iphone 8",
+        "category": "phones",
+        "description": "Cмартфон нового поколения от Apple, имеющий стеклянный корпус, поддержку беспроводной зарядки по стандарту Qi, 4,7-дюймовый дисплей с поддержкой технологии True Tone, шестиядерный процессор A11 Bionic.",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 3,
+    "fields": {
+        "name_goods": "Iphone X",
+        "category": "phones",
+        "description": "исплей Super Retina HD 5,8”, разрешение 2436 × 1125 пикселей, 458 пикселей на дюйм; защита от воды, пыли и брызг (IP67), 6-ядерный 64-битный процессор A11 Bionic, нейронная система",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 4,
+    "fields": {
+        "name_goods": "AirPods",
+        "category": "headphones",
+        "description": "AirPods позволяют слушать музыку 5 часов без подзарядки6 — это один из лучших показателей в индустрии. Время работы в режиме телефонного разговора теперь составляет до 3 часов. Кроме того, футляр обеспечивает наушникам несколько циклов зарядки, благодаря чему они могут работать более 24 часов в режиме прослушивания.",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 5,
+    "fields": {
+        "name_goods": "Чехол для Iphone 7",
+        "category": "cases",
+        "description": "Чехол черного цвета для модели Iphone 7",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 6,
+    "fields": {
+        "name_goods": "iPens",
+        "category": "other",
+        "description": "Ручка для более удобного использования планшета",
+        "picture": "/pictures/product.jpg"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 1,
+    "fields": {
+        "author": 1,
+        "product": 1,
+        "text": "очень классный телефон всем советую",
+        "mark": 5,
+        "is_moderate": true,
+        "created_at": "2022-08-27T06:18:16.388Z",
+        "edited_at": "2022-08-27T11:01:48.758Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 2,
+    "fields": {
+        "author": 3,
+        "product": 5,
+        "text": "Крутой чехол",
+        "mark": 5,
+        "is_moderate": true,
+        "created_at": "2022-08-27T09:16:00.061Z",
+        "edited_at": "2022-08-27T11:01:45.664Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 3,
+    "fields": {
+        "author": 3,
+        "product": 5,
+        "text": "Крутой чехол",
+        "mark": 5,
+        "is_moderate": true,
+        "created_at": "2022-08-27T09:16:45.220Z",
+        "edited_at": "2022-08-27T11:01:42.748Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 4,
+    "fields": {
+        "author": 3,
+        "product": 2,
+        "text": "Телефон может быть и хорош, но уже устарел",
+        "mark": 4,
+        "is_moderate": true,
+        "created_at": "2022-08-27T09:17:15.017Z",
+        "edited_at": "2022-08-27T11:01:39.657Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 5,
+    "fields": {
+        "author": 2,
+        "product": 3,
+        "text": "Amazing Phone",
+        "mark": 5,
+        "is_moderate": true,
+        "created_at": "2022-08-27T10:22:40.980Z",
+        "edited_at": "2022-08-27T11:01:35.920Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 7,
+    "fields": {
+        "author": 2,
+        "product": 6,
+        "text": "не нужная вещь",
+        "mark": 3,
+        "is_moderate": false,
+        "created_at": "2022-08-27T12:21:26.231Z",
+        "edited_at": "2022-08-27T12:24:59.867Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 8,
+    "fields": {
+        "author": 2,
+        "product": 2,
+        "text": "Крутой Тел все советую",
+        "mark": 5,
+        "is_moderate": false,
+        "created_at": "2022-08-27T12:21:49.732Z",
+        "edited_at": "2022-08-27T12:21:49.732Z"
+    }
+}
+]

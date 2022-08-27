@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views import View
@@ -54,7 +54,8 @@ class ReviewDeleteView(DeleteView):
         return context
 
 
-class ReviewModerateView(View):
+class ReviewModerateView(PermissionRequiredMixin, View):
+    permission_required = 'webapp.change_review'
     def get(self, request, *args, **kwargs):
         qs = Review.objects.filter(is_moderate=False).order_by('-edited_at')
         return render(request, 'review/review_moderate.html', {'reviews': qs})

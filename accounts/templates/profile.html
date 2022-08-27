@@ -26,5 +26,5 @@
             <p class="card-subtitle mb-2 -muted"> {{ user_obj.profile.git }}</p>
         </div>
     </div>
-    {% include "partial/review_list_partial.html" with reviews=product.reviews.all %}
+    {% include "partial/review_list_partial.html" with reviews=user_obj.reviews.all %}
 {% endblock %}

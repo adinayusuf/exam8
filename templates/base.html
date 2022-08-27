@@ -50,7 +50,7 @@
                         <a class="nav-link" href="{% url "accounts:profile_list" %}">Пользователи</a>
                     </li>
                 {% endif %}
-                {% if perms.change_review %}
+                {% if perms.webapp.change_review %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url "webapp:moderate" %}">Модератор Конментрариев</a>
                     </li>
